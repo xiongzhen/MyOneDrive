@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="二十三流码农">
+        <meta name="description" content="Access OneDrive in P.R.Chine">
+        <meta name="locale" content="en-us">
+        <title>My OneDrive</title>
+        <style>
+            #main { border: none; background-color: white; }
+            #banner { background:gray;color:white;padding:1em;display:flex;flex-direction:row;justify-content:space-between; }
+            #owner { font-weight: bold; }
+            #toolbar, #shared-panel { margin: 1em; }
+            #shared-panel {display:flex; justify-content: space-between;}
+            #sharing-url { flex-grow: 1; }
+            #go-sharing-url { margin-left: 1em;}
+            #content { display: flex; flex-flow: column; }
+
+            table { margin: 1em; }
+            table, thead, tbody, tr, td, th { border: 1px solid red; color:black; border-collapse:collapse; }
+            td,th { padding: 0.5em; }
+            thead th { text-align:left;}
+            tbody tr td:nth-child(2) { text-align:right; }
+            tbody tr td:nth-child(1) { cursor:pointer; }
+            tbody tr td:nth-child(1) * { cursor:pointer; }
+            #list-header { margin:1em;color:black; }
+            .list-header-item { cursor:pointer; }
+            .list-header-item:last-child { font-weight:bold; }
+            .list-header-item:not(:first-child)::before{ content:">";margin:0.5em;color:gray; cursor:default;}
+            td.file label::before { content:"\01f4dd\0020"; }
+            td.folder label::before { content:"\01f4c1\0020"; }
+            td.bundle label::before { content:"\01f4bc\0020"; }
+            tbody tr:hover { background:lightgray; }
+            tbody { max-height: 30em;overflow:hidden; }
+        </style>
+        <style id="DynamicStyle"></style>
+    </head>
+    <body>
+        <div id="main">
+            <div id="banner">
+                <div><a href="https://login.live.com" id="owner"></a></div>
+                <div id="copyright">Copyright&nbsp;©2024&nbsp;<a href="https://github.com/xiongzhen/MyOneDrive" target="_blank">xiongzhen</a></div>
+            </div>
+            <div id="shared-panel">
+                <input id="sharing-url"/>
+                <button id="go-sharing-url">Open</button>
+            </div>
+            <div id="list-header"></div>
+            <!--<div id="toolbar">
+                <button id="upload" onclick="on_click_upload">Upload...</button>
+            </div>-->
+            <div id="content">
+                <table id="content-table">
+                    <thead>
+                        <tr>
+                            <th style="min-width: 25em;">Name</th>
+                            <th style="min-width: 10em;">Size</th>
+                            <th style="min-width: 10em;">Type</th>
+                            <th style="min-width: 12em;">Modified</th>
+                            <th style="min-width: 10em;">Modified by</th>
+                        </tr>
+                    </thead>
+                    <tbody id="DriveItemsTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+    <script src="content.js"></script>
+</html>
