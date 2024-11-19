@@ -1,0 +1,28 @@
+{
+	"manifest_version": 2,
+	"name":"My OneDrive",
+	"version": "0.0.1",
+	"description": "Access your OneDrive files, folders and sharing urls.",
+	"icons": {
+		"16": "icons/MyOneDrive_16x16.png",
+		"32": "icons/MyOneDrive_32x32.png",
+		"48": "icons/MyOneDrive_48x48.png",
+		"64": "icons/MyOneDrive_64x64.png",
+		"128": "icons/MyOneDrive_128x128.png"
+	},
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "{71572790-2ec2-2b8d-bf32-002757e39158}",
+            "strict_min_version": "58.0"
+        }
+    },
+	"permissions": [
+		"scripting",
+		"identity",
+		"storage"
+	],
+    "background": {
+        "page": "background.html",
+        "persistent": false
+    }
+}
