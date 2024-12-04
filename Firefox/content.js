@@ -369,7 +369,7 @@ function init() {
 
             let drive = JSON.parse(result);
             if(drive.hasOwnProperty('error')) {
-                div_owner.innerText = "";    
+                div_owner.innerText = "Login";
                 return;
             }
             clearInterval(init_id);
@@ -396,4 +396,4 @@ function init() {
     });
 }
 
-let init_id = setInterval(init, 1000);
+let init_id = setInterval(init, 2000);
